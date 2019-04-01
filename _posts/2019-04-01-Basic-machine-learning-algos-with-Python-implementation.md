@@ -69,7 +69,7 @@ H = b0 + b1 * X
 plt.plot(X,H, c='b', label='Regression Line')
 plt.scatter(X, Y, c='g', label='Known values')
 ```
-![Regression Line](../assets/LSM.png)
+![Regression Line](/assets/LSM.png)
 
 
 
