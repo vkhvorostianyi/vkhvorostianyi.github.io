@@ -365,7 +365,7 @@ print(f'r^2_sklearn: {r_2_sklearn}, rmse_sklearn: {rmse_sklearn}')
 В этой статье были приведены базовые алгоритмы "машинного обучения" и их имплементация на Python, а уже в следующей, будет рассмотрен алгоритм логистической регрессии для решения задач классификации объектов.
 
 Для написания этой статьи использовались материалы:  
-<https://mubaris.com/posts/linear-regression/ >
+<https://mubaris.com/posts/linear-regression/>  
 <https://www.wikiwand.com/en/Ordinary_least_squares>   
 <https://www.coursera.org/learn/machine-learning>  
 
