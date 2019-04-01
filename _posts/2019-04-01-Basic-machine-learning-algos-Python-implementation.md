@@ -69,7 +69,7 @@ H = b0 + b1 * X
 plt.plot(X,H, c='b', label='Regression Line')
 plt.scatter(X, Y, c='g', label='Known values')
 ```
-![LSM.png](../files/images/LSM.png)){:class="img-responsive"}
+![LSM.png](../files/images/LSM.png){:class="img-responsive"}
 
 
 #### Многомерная линейная регрессия
