@@ -140,7 +140,8 @@ H = X_.dot(theta.T)
 Поэтому на практике гораздо чаще можно встретить другой алгоритм вычисления вектора параметров, а именно
 **градиентный спуск**.
 
-###### Градиентный спуск и кост-функция
+##### Градиентный спуск и кост-функция
+
 Градиентный спуск(gradient descent) - алгоритм оптимизации, который позволяет обновлять значения всех элементов вектора параметров одновременно.  
 Градиент - это вектор частных производных от $$\theta$$.  
 Метод предполагает обновление вектора $\theta$ по всем параметрам, за $$n$$ шагов.  
@@ -364,9 +365,9 @@ print(f'r^2_sklearn: {r_2_sklearn}, rmse_sklearn: {rmse_sklearn}')
 В этой статье были приведены базовые алгоритмы "машинного обучения" и их имплементация на Python, а уже в следующей, будет рассмотрен алгоритм логистической регрессии для решения задач классификации объектов.
 
 Для написания этой статьи использовались материалы:  
-https://mubaris.com/posts/linear-regression/  
-https://www.wikiwand.com/en/Ordinary_least_squares  
-https://www.coursera.org/learn/machine-learning  
+<https://mubaris.com/posts/linear-regression/ >
+<https://www.wikiwand.com/en/Ordinary_least_squares>   
+<https://www.coursera.org/learn/machine-learning>  
 
-Ссылка на датасеты и многое другое: https://www.kaggle.com/datasets   
-Ссылка на проект: https://github.com/vkhvorostianyi/ML_blog/tree/master/articles/linear_regression
+Ссылка на датасеты и многое другое: <https://www.kaggle.com/datasets>   
+Ссылка на проект: <https://github.com/vkhvorostianyi/ML_blog/tree/master/articles/linear_regression>  
