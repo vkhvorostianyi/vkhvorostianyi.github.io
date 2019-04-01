@@ -16,7 +16,7 @@
 title: Garage DS
 email: slavafh@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
- Just blog for my hobbie, which I call Garage Data Science 
+ Just a blog for my hobbie, which I call Garage Data Science 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: vkhvorostianyi
