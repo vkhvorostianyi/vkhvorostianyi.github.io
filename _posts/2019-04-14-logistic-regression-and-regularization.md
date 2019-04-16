@@ -116,4 +116,8 @@ stat = np.unique(d==df['class'].values, return_counts=True)
 print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}')
 ```
 
-<https://towardsdatascience.com/andrew-ngs-machine-learning-course-in-python-regularized-logistic-regression-lasso-regression-721f311130fb>
+Ссылки на используемые ресурсы:
+<https://towardsdatascience.com/andrew-ngs-machine-learning-course-in-python-regularized-logistic-regression-lasso-regression-721f311130fb>  
+<https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c>  
+<https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2>  
+<https://towardsdatascience.com/over-fitting-and-regularization-64d16100f45c>
