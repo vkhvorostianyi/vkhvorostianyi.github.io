@@ -54,19 +54,42 @@ $$J(\theta) = \frac{1}{m} \sum_{i=1}^m - y^{(i)} \log(a^{(i)}) - (1-y^{(i)} ) \l
 Имплементация на Python
 
 ```python
+import pandas as pd, numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline
+
+df = pd.read_csv('https://raw.githubusercontent.com/vkhvorostianyi/vkhvorostianyi.github.io/master/assets/data.csv')
+df['class'] = 1
+df.loc[df['diagnosis'] == 'B', 'class'] = 0
+X_ = df.iloc[:,2:-2]
+Y = df.iloc[:,-1]
+
+def get_X_with_ones(X):
+    """нормализируем данные и добавляем столбик единиц"""
+    X = np.array(X)
+    mean,std = X.mean(), X.std()
+    X = (X - mean) / std
+    m = len(X)
+    X = np.c_[np.ones(m),X].T
+    return X
+
+X = get_X_with_ones(X_)
+
+initial_theta = np.zeros((X.shape[0], 1))
+
 def sigmoid(z):
     return 1/ (1 + np.exp(-z))
 
 def costFunctionReg(theta, X, y ,Lambda):
     m=len(y)
     y=y[:,np.newaxis]
-    predictions = sigmoid(X @ theta)
+    predictions = sigmoid(X.T @ theta)
     error = (-y * np.log(predictions)) - ((1-y)*np.log(1-predictions))
     cost = 1/m * sum(error)
     regCost= cost + Lambda/(2*m) * sum(theta**2)
     
-    j_0= 1/m * (X.transpose() @ (predictions - y))[0]
-    j_1 = 1/m * (X.transpose() @ (predictions - y))[1:] + (Lambda/m)* theta[1:]
+    j_0 = 1/m * (X @ (predictions - y))[0]
+    j_1 = 1/m * (X @ (predictions - y))[1:] + (Lambda/m)* theta[1:]
     grad= np.vstack((j_0[:,np.newaxis],j_1))
     return regCost[0], grad
 
@@ -80,8 +103,17 @@ def gradientDescent(X,y,theta,alpha,num_iters,Lambda):
         theta = theta - (alpha * grad)
         J_history.append(cost)    
     return theta , J_history
-theta , J_history = gradientDescent(X,y,initial_theta,1,800,0.2)
-return theta , J_history
+
+theta , J_history = gradientDescent(X,Y, initial_theta,.5,200,0.5)
+print("Cost func:\n", J_history[-1])
+```
+
+```
+s = np.squeeze(sigmoid(theta.T @ X))
+d = np.zeros(s.shape[0])
+d[s>.5] = 1
+stat = np.unique(d==df['class'].values, return_counts=True)
+print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}')
 ```
 
 <https://towardsdatascience.com/andrew-ngs-machine-learning-course-in-python-regularized-logistic-regression-lasso-regression-721f311130fb>
