@@ -127,6 +127,7 @@ print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}') # доля совпавших
 ```
 
 Ссылки на используемые ресурсы:   
+<https://towardsdatascience.com/regularization-in-machine-learning-connecting-the-dots-c6e030bfaddd>
 <https://towardsdatascience.com/andrew-ngs-machine-learning-course-in-python-regularized-logistic-regression-lasso-regression-721f311130fb>  
 <https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c>  
 <https://medium.com/datadriveninvestor/l1-l2-regularization-7f1b4fe948f2>  
