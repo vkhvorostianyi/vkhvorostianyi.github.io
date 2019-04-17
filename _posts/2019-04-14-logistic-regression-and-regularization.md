@@ -58,13 +58,18 @@ $$J(\theta) = \frac{1}{m} \sum_{i=1}^m - y^{(i)} \log(a^{(i)}) - (1-y^{(i)} ) \l
 ```python
 import pandas as pd, numpy as np
 from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split  
 %matplotlib inline
 
+# для примера возьмем результаты обследования молочной железы на предмет рака    
 df = pd.read_csv('https://raw.githubusercontent.com/vkhvorostianyi/vkhvorostianyi.github.io/master/assets/data.csv')
 df['class'] = 1
 df.loc[df['diagnosis'] == 'B', 'class'] = 0
 X_ = df.iloc[:,2:-2]
 Y = df.iloc[:,-1]
+
+# расделим данные на трейн сет и тест сет
+train_set_x, test_set_x, train_set_y, test_set_y = train_test_split(X_, Y, test_size=0.33, random_state=42)
 
 def get_X_with_ones(X):
     """нормализируем данные и добавляем столбик единиц"""
@@ -75,7 +80,8 @@ def get_X_with_ones(X):
     X = np.c_[np.ones(m),X].T
     return X
 
-X = get_X_with_ones(X_)
+# добавим столбик единиц
+X = get_X_with_ones(train_set_x)
 
 initial_theta = np.zeros((X.shape[0], 1))
 
@@ -84,14 +90,14 @@ def sigmoid(z):
 
 def costFunctionReg(theta, X, y ,Lambda):
     m=len(y)
-    y=y[:,np.newaxis]
-    predictions = sigmoid(X.T @ theta)
+    y=y[:,np.newaxis] # аналог reshape()
+    predictions = sigmoid(X.T @ theta) # @ - оператор векторного умножения, аналог np.dot
     error = (-y * np.log(predictions)) - ((1-y)*np.log(1-predictions))
     cost = 1/m * sum(error)
     regCost= cost + Lambda/(2*m) * sum(theta**2)
     
     j_0 = 1/m * (X @ (predictions - y))[0]
-    j_1 = 1/m * (X @ (predictions - y))[1:] + (Lambda/m)* theta[1:]
+    j_1 = 1/m * (X @ (predictions - y))[1:] + (Lambda/m)* theta[1:] # место, где происходит вся магия, "штрафуем" вектор параметров
     grad= np.vstack((j_0[:,np.newaxis],j_1))
     return regCost[0], grad
 
@@ -106,16 +112,18 @@ def gradientDescent(X,y,theta,alpha,num_iters,Lambda):
         J_history.append(cost)    
     return theta , J_history
 
-theta , J_history = gradientDescent(X,Y, initial_theta,.5,200,0.5)
+theta , J_history = gradientDescent(X,train_set_y, initial_theta,.5,200,0.5)
 print("Cost func:\n", J_history[-1])
 ```
-Выведем результат
-```
+
+Выведем результат:  
+```python
+X = get_X_with_ones(test_set_x)
 s = np.squeeze(sigmoid(theta.T @ X))
 d = np.zeros(s.shape[0])
 d[s>.5] = 1
-stat = np.unique(d==df['class'].values, return_counts=True)
-print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}')
+stat = np.unique(d==test_set_y, return_counts=True) # количество совпавших и не совпавших диагнозов
+print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}') # доля совпавших
 ```
 
 Ссылки на используемые ресурсы:   
