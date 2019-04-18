@@ -97,6 +97,7 @@ H = \theta^TX
 $$
 
 Где   
+
 $$
 \theta = [ \theta_0, \theta_1, \theta_2, …, \theta_n ]
 $$
