@@ -100,7 +100,7 @@ $$
 
 $$
 \theta = [ \theta_0, \theta_1, \theta_2, …, \theta_n ]
-$$
+$$  
    
 $$
 X = [ x_0, x_1, x_2, …, x_n]
