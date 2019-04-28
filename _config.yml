@@ -25,7 +25,7 @@ github_username:  vkhvorostianyi
 # Build settings
 markdown: kramdown
 math_engine: mathjax
-theme: minima
+theme: jekyll-theme-tactile
 plugins:
   - jekyll-feed
 # Exclude from processing.
