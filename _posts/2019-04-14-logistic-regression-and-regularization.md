@@ -123,7 +123,7 @@ s = np.squeeze(sigmoid(theta.T @ X))
 d = np.zeros(s.shape[0])
 d[s>.5] = 1
 stat = np.unique(d==test_set_y, return_counts=True) # количество совпавших и не совпавших диагнозов
-print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}') # доля совпавших
+print(f'Accuracy:{stat[1][1]/sum(stat[1]):.2}') # доля совпавших ~98%
 ```
 
 Ссылки на используемые ресурсы:   
