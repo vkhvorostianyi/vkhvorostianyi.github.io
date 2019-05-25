@@ -56,6 +56,8 @@ $$sigmoid(z^{(i)})$$ - сигмоида
 
 ![img](/assets/tanh.png)
 
+$$tanh(x) = 2sigmoid(2x)$$
+
 Графики различных ф-ций активации:  
 
 ![img](/assets/actviation_func.png)
