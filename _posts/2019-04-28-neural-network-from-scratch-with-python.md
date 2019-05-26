@@ -122,3 +122,17 @@ $$f_3(x)$$: функция выученая на третьем слое
 ![img](/assets/backprop.jpeg)
 
 
+
+Ссылки:
+https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/  
+https://neurohive.io/ru/osnovy-data-science/activation-functions/  
+https://neurohive.io/ru/osnovy-data-science/osnovy-nejronnyh-setej-algoritmy-obuchenie-funkcii-aktivacii-i-poteri/  
+https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6  
+https://towardsdatascience.com/coding-neural-network-forward-propagation-and-backpropagtion-ccf8cf369f76  
+
+
+
+
+
+
+
